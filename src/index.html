@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <title>PoemPad | Reading Poetry Made Easy</title>
 </head>
@@ -12,32 +13,23 @@
             <h1 class="header__title">PoemPad</h1>
             <form class="search">
                 <input type="search" class="search__field" placeholder="Search">
+                <button type="button" class="button search__button"><i class="fas fa-search"></i></button>
             </form>
         </header>
         <div class="main-content">
-            <div class="search-results">
-                <ul class="search-results__list">
-                    <li>
-                        <a class="search-results__link" href="#">
-                            <h3 class="search-results__title">I'm Nobody! Who are you?</h3>
-                            <p class="search-results__author">Emily Dickinson</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
             <main class="poem">
                 <article>
-                    <header class="poem-info">
-                        <h2 class="poem-info__title">I'm Nobody! Who are you?</h2>
-                        <p class="poem-info__author">Emily Dickinson</p>
+                    <header class="poem__info">
+                        <h2 class="poem__title">I'm Nobody! Who Are You?</h2>
+                        <p class="poem__author">Emily Dickinson</p>
                     </header>
-                    <ul class="poem-stanza">
+                    <ul class="poem__stanza">
                         <li>I’m nobody! Who are you?</li>
                         <li>Are you nobody too?</li>
                         <li> Then there’s a pair of us! – don’t tell!</li>
                         <li> They’d banish us, you know!</li>
                     </ul>
-                    <ul class="poem-stanza">
+                    <ul class="poem__stanza">
                         <li>How dreary to be somebody!</li>
                         <li>How public, like a frog</li>
                         <li>To tell your name the livelong day</li>
@@ -45,10 +37,66 @@
                     </ul>
                 </article>
             </main>
+            <div class="search-results">
+                <ul class="search-results__list">
+                    <li>
+                        <a class="search-results__link" href="#">
+                            <h3 class="search-results__title">I'm Nobody! Who Are You?</h3>
+                            <p class="search-results__author">Emily Dickinson</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="search-results__link" href="#">
+                            <h3 class="search-results__title">The Red Wheelbarrow</h3>
+                            <p class="search-results__author">William Carlos Williams</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="search-results__link" href="#">
+                            <h3 class="search-results__title">The Waste Land</h3>
+                            <p class="search-results__author">T. S. Eliot</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="search-results__link" href="#">
+                            <h3 class="search-results__title">The Road Not Taken</h3>
+                            <p class="search-results__author">Robert Frost</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="search-results__link" href="#">
+                            <h3 class="search-results__title">We Real Cool</h3>
+                            <p class="search-results__author">Gwendolyn Brooks</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="search-results__link" href="#">
+                            <h3 class="search-results__title">I'm Nobody! Who Are You?</h3>
+                            <p class="search-results__author">Emily Dickinson</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="search-results__link" href="#">
+                            <h3 class="search-results__title">The Red Wheelbarrow</h3>
+                            <p class="search-results__author">William Carlos Williams</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="search-results__link" href="#">
+                            <h3 class="search-results__title">The Waste Land</h3>
+                            <p class="search-results__author">T. S. Eliot</p>
+                        </a>
+                    </li>
+                </ul>
+                <div class="search-results__buttons">
+                    <button class="button search-results__button search-results__button--prev" type="button"><i class="fas fa-caret-left"></i> Previous</button>
+                    <button class="button search-results__button search-results__button--next" type="button">Next <i class="fas fa-caret-right"></i></button>
+                </div>
+                <p class="copyright">&copy; by Aazib Chaudhry.</p>
+            </div>
         </div>
-        <footer class="footer">
-            <p class="copyright">&copy; by Aazib Chaudhry.</p>
-        </footer>
     </div>
+
+    <script src="https://kit.fontawesome.com/4f9174d7cd.js" crossorigin="anonymous"></script>
 </body>
 </html>

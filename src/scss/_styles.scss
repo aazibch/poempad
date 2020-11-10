@@ -1,0 +1,154 @@
+@use "base";
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid base.$generic-border-color;
+
+    &__title {
+        font-weight: 600;
+        color: base.$dominant-color;
+        display: inline-block;
+        margin-right: auto;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+    }
+}
+
+.search {
+    display: inline-block;
+    padding: 0;
+    margin-top: 0;
+    position: relative;
+
+    &__field {
+        width: 18rem;
+        height: 2.6rem;
+        border: 1px solid base.$generic-border-color;
+        border-radius: 5px;
+        padding: 0 2.25rem 0 1rem;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        background: none;
+        color: base.$dominant-color;
+        font-size: 1rem;
+
+        &:hover {
+            background: base.$dominant-color;
+            color: #fff;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    }
+}
+
+.main-content {
+    display: flex;
+    height: 42rem;
+}
+
+.search-results {
+    margin-left: auto;
+    flex: 0 0 20rem;
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+
+    &__list {
+        list-style-type: none;
+    }
+
+    &__link:link,
+    &__link:visited {
+        text-decoration: none;
+        display: block;
+        padding: 1rem;
+    }
+
+    &__link:hover {
+        background: #eeeeee;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    &__author {
+        color: #4d5156;
+    }
+
+    &__buttons {
+        display: flex;
+        padding: 0 1rem;
+        margin: 1rem 0 auto;
+    }
+
+    &__button {
+        color: base.$dominant-color;
+        background: #eee;
+        font-size: 0.7rem;
+
+        &:hover {
+            background: lighten(#eee, 2%);
+        }
+    }
+
+    &__button--prev {
+        margin-right: auto;
+    }
+
+    &__button--next {
+        margin-left: auto;
+    }
+}
+
+.poem {
+    flex: 1 0 auto;
+    border-right: 1px solid base.$generic-border-color;
+
+    article {
+        height: 100%;
+        padding: 3rem 4rem;
+        overflow-y: auto;
+    }
+
+    &__info {
+        margin-bottom: 1.5rem;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    &__author {
+        font-weight: 600;
+    }
+
+    &__stanza {
+        list-style-type: none;
+        margin-bottom: 1rem;
+        text-indent: -1rem;
+        padding-left: 1rem;
+    }
+}
+
+.copyright {
+    margin: 1rem 0;
+    padding: 0 1rem;
+    color: base.$secondary-text-color;
+}

@@ -1,0 +1,30 @@
+@use "base";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: base.$dominant-color;
+}
+
+%button {
+    border-style: none;
+    padding: .375rem .75rem;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.button {
+    @extend %button;
+}
+
+.button-primary {
+    @extend %button;
+    background: base.$dominant-color;
+
+    &:hover {
+        background: darken(base.$dominant-color, 5%);
+    }
+}
