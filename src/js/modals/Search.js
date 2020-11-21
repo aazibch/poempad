@@ -7,7 +7,8 @@ export default class Search {
 
     async getResults() {
         console.log('query', this.query);
-        const results = await axios(`https://poetrydb.org/title/${this.query}`);
+        const results = await axios(`https://poetrydb.org/title/${this.query}/author,title`);
         this.results = results.data;
+        console.log('results', this.results);
     }
 }
