@@ -56,7 +56,7 @@
 
 .main-content {
     display: flex;
-    height: 42rem;
+    height: 40rem;
 }
 
 .search-results {
@@ -68,6 +68,7 @@
 
     &__list {
         list-style-type: none;
+        margin: 0 0 auto;
     }
 
     &__link:link,
@@ -93,7 +94,6 @@
     &__buttons {
         display: flex;
         padding: 0 1rem;
-        margin: 1rem 0 auto;
     }
 
     &__button {
