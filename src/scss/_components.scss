@@ -28,3 +28,33 @@ h6 {
         background: darken(base.$dominant-color, 5%);
     }
 }
+
+// Spinner from https://loading.io/css/
+
+$spinner-color: #C0C0C0;
+
+.spinner {
+    display: none;
+    width: 100px;
+    height: 100px;
+
+    &:after {
+        content: " ";
+        display: block;
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        border: 8px solid $spinner-color;
+        border-color: $spinner-color transparent $spinner-color transparent;
+        animation: spinner 1.2s linear infinite;
+    }
+}
+
+@keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}  

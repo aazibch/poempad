@@ -2,6 +2,10 @@ import { elements } from './base';
 
 export const getInput = () => elements.searchField.value;
 
+export const showSpinner = () => elements.searchSpinner.style.display = 'inline-block';
+
+export const hideSpinner = () => elements.searchSpinner.style.display = 'none';
+
 export const renderResults = (results, pageNum = 1) => {
     const resPerPage = 8;
     const pageQuantity = Math.ceil(results.length / resPerPage);

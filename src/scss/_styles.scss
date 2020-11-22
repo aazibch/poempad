@@ -67,6 +67,11 @@
     display: flex;
     flex-direction: column;
 
+    &__spinner {
+        margin-top: 14rem;
+        align-self: center;
+    }
+
     &__list {
         list-style-type: none;
         margin: 0 0 auto;

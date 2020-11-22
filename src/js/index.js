@@ -15,9 +15,11 @@ const controlSearch = async (e) => {
 
     // 3) Prepare UI for results
     searchView.clearResults();
+    searchView.showSpinner();
 
     // 4) Get results
     await state.search.getResults();
+    searchView.hideSpinner();
 
     // 5) Render results to the UI
     searchView.renderResults(state.search.results);
