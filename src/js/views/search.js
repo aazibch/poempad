@@ -18,14 +18,37 @@ export const renderResults = (results, pageNum = 1, resPerPage = 8) => {
     renderButtons(pageQuantity, pageNum);
 }
 
-export const renderResult = (result) => elements.searchResultsList.insertAdjacentHTML('beforeend',
-    `<li>
-        <a class="search-results__link" href="#">
-            <h3 class="search-results__title">${result.title}</h3>
-            <p class="search-results__author">${result.author}</p>
-        </a>
-    </li>`
-);
+export const renderResult = (result) => {
+    elements.searchResultsList.insertAdjacentHTML('beforeend',
+        `<li>
+            <a class="search-results__link" href="#">
+                <h3 class="search-results__title">${shortenTerm(result.title, 30)}</h3>
+                <p class="search-results__author">${shortenTerm(result.author, 45)}</p>
+            </a>
+        </li>`
+    );
+};
+
+export const shortenTerm = (term, permittedLength) => {
+    if (term.length > permittedLength) {
+        const updatedTerm = [];
+
+        let length = 0;
+        term.split(' ').forEach(word => {
+            length += word.length;
+
+            if (length <= permittedLength) {
+                updatedTerm.push(word);
+            }
+        });
+
+        updatedTerm.push('...');
+
+        return updatedTerm.join(' ');
+    } else {
+        return term;
+    }
+}
 
 export const renderButtons = (pageQuantity, currentPage) => {
     if (currentPage !== 1 && currentPage <= pageQuantity) {
