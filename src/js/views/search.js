@@ -6,11 +6,10 @@ export const showSpinner = () => elements.searchSpinner.style.display = 'inline-
 
 export const hideSpinner = () => elements.searchSpinner.style.display = 'none';
 
-export const renderResults = (results, pageNum = 1) => {
-    const resPerPage = 8;
+export const renderResults = (results, pageNum = 1, resPerPage = 8) => {
     const pageQuantity = Math.ceil(results.length / resPerPage);
     const start = (pageNum - 1) * resPerPage;
-    const visibleResults = results.splice(start, resPerPage);
+    const visibleResults = [...results].splice(start, resPerPage);
 
     for (let x of visibleResults) {
         renderResult(x);
@@ -30,24 +29,37 @@ export const renderResult = (result) => elements.searchResultsList.insertAdjacen
 
 export const renderButtons = (pageQuantity, currentPage) => {
     if (currentPage !== 1 && currentPage <= pageQuantity) {
-        elements.searchResultsButtons.insertAdjacentHTML('afterbegin', `
-            <button class="button search-results__button search-results__button--prev" type="button" data-goto-page="${currentPage - 1}">
-                <i class="fas fa-caret-left"></i>
-                Previous
-            </button>
-        `);
+        createButton('prev', currentPage);
     }
 
     if (currentPage !== pageQuantity) {
-        elements.searchResultsButtons.insertAdjacentHTML('beforeend', `
-            <button class="button search-results__button search-results__button--next" type="button" data-goto-page="${currentPage + 1}">
-                Next
-                <i class="fas fa-caret-right"></i>
-            </button>
-        `);
+        createButton('next', currentPage);
     }
 }
 
+export const createButton = (type, currentPage) => {
+    let icon = 'right';
+    let buttonContent = `
+        Next
+        <i class="fas fa-caret-${icon}"></i>`;
+    let nextPage = currentPage + 1;
+
+    if (type === 'prev') {
+        icon = 'left';
+        buttonContent = `
+            <i class="fas fa-caret-${icon}"></i>
+            Previous`;
+        nextPage = currentPage - 1;
+    }
+
+    elements.searchResultsButtons.insertAdjacentHTML('beforeend', `
+        <button class="button search-results__button search-results__button--${type}" type="button" data-goto="${nextPage}">
+            ${buttonContent}
+        </button>
+    `);
+}
+
 export const clearResults = () => {
+    elements.searchResultsButtons.innerHTML = '';
     elements.searchResultsList.innerHTML = '';
 }

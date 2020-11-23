@@ -26,3 +26,12 @@ const controlSearch = async (e) => {
 };
 
 elements.searchForm.addEventListener('submit', controlSearch);
+
+elements.searchResultsButtons.addEventListener('click', (e) => {
+    const button = e.target.closest('.search-results__button');
+
+    if (button) {
+        searchView.clearResults();
+        searchView.renderResults(state.search.results, +button.dataset.goto);
+    }
+});
