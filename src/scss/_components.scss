@@ -35,14 +35,14 @@ $spinner-color: #C0C0C0;
 
 .spinner {
     display: none;
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
 
     &:after {
         content: " ";
         display: block;
-        width: 84px;
-        height: 84px;
+        width: 114px;
+        height: 114px;
         border-radius: 50%;
         border: 8px solid $spinner-color;
         border-color: $spinner-color transparent $spinner-color transparent;

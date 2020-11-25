@@ -122,8 +122,8 @@
 }
 
 .poem {
-    flex: 1 0 auto;
     border-right: 1px solid base.$generic-border-color;
+    width: 100%;
 
     article {
         height: 100%;
@@ -131,7 +131,7 @@
         overflow-y: auto;
     }
 
-    &__info {
+    &__header {
         margin-bottom: 1.5rem;
     }
 
@@ -145,11 +145,24 @@
         font-weight: 600;
     }
 
-    &__stanza {
+    &__body {
         list-style-type: none;
-        margin-bottom: 1rem;
+        margin-bottom: 4rem;
         text-indent: -1rem;
         padding-left: 1rem;
+    }
+
+    &__break {
+        height: 1.5rem;
+    }
+
+    &__space {
+        display: inline-block;
+        width: 1rem;
+    }
+
+    &__spinner {
+        margin: 14rem auto 0;
     }
 }
 

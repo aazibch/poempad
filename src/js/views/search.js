@@ -2,8 +2,7 @@ import { elements } from './base';
 
 export const getInput = () => elements.searchField.value;
 
-export const showSpinner = () => elements.searchSpinner.style.display = 'inline-block';
-
+export const showSpinner = () => elements.searchSpinner.style.display = 'block';
 export const hideSpinner = () => elements.searchSpinner.style.display = 'none';
 
 export const renderResults = (results, pageNum = 1, resPerPage = 8) => {
@@ -21,7 +20,7 @@ export const renderResults = (results, pageNum = 1, resPerPage = 8) => {
 export const renderResult = (result) => {
     elements.searchResultsList.insertAdjacentHTML('beforeend',
         `<li>
-            <a class="search-results__link" href="#">
+            <a class="search-results__link" href="#" data-title="${result.title.replace(/"/g, '&quot;')}">
                 <h3 class="search-results__title">${shortenTerm(result.title, 30)}</h3>
                 <p class="search-results__author">${shortenTerm(result.author, 45)}</p>
             </a>
