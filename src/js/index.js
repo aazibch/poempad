@@ -4,6 +4,7 @@ import Poem from './modals/Poem';
 import * as searchView from './views/search';
 import * as poemView from './views/poem';
 import { elements, elementNames } from './views/base';
+import { _ } from 'core-js';
 
 const state = {};
 
@@ -28,31 +29,30 @@ const controlSearch = async (e) => {
     searchView.renderResults(state.search.results);
 };
 
-const controlPoem = async (title) => {
-    // 1) Create new Poem object and edit state
-    state.poem = new Poem(title);
+const controlPoem = async () => {
+    if (window.location.hash) {
+        // 1) Get poem title from the hash.
+        const title = decodeURIComponent(window.location.hash).replace('#', '');
 
-    // 2) Prepare UI for results
-    poemView.clearPoem();
-    poemView.showSpinner();
+        // 2) Create new Poem object and edit state
+        state.poem = new Poem(title);
 
-    // 3) Get results
-    await state.poem.getPoem();
-    poemView.hideSpinner();
+        // 3) Prepare UI for results
+        poemView.clearPoem();
+        poemView.showSpinner();
 
-    // 4) Render results to the UI
-    poemView.renderPoem({
-        title: state.poem.title,
-        author: state.poem.author,
-        lines: state.poem.lines
-    });
+        // 4) Get results
+        await state.poem.getPoem();
+        poemView.hideSpinner();
+
+        // 5) Render results to the UI
+        poemView.renderPoem({
+            title: state.poem.title,
+            author: state.poem.author,
+            lines: state.poem.lines
+        });
+    }
 }
-
-elements.searchResultsList.addEventListener('click', (e) => {
-    const searchRes = e.target.closest(elementNames.searchResult);
-
-    if (searchRes) controlPoem(searchRes.dataset.title);
-});
 
 elements.searchForm.addEventListener('submit', controlSearch);
 
@@ -64,3 +64,5 @@ elements.searchResultsButtons.addEventListener('click', (e) => {
         searchView.renderResults(state.search.results, +button.dataset.goto);
     }
 });
+
+['load', 'hashchange'].forEach(event => window.addEventListener(event, controlPoem));
