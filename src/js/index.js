@@ -41,7 +41,11 @@ const controlPoem = async (title) => {
     poemView.hideSpinner();
 
     // 4) Render results to the UI
-    poemView.renderPoem(state.poem.title, state.poem.author, state.poem.lines);
+    poemView.renderPoem({
+        title: state.poem.title,
+        author: state.poem.author,
+        lines: state.poem.lines
+    });
 }
 
 elements.searchResultsList.addEventListener('click', (e) => {

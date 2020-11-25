@@ -3,9 +3,9 @@ import { elements } from './base';
 export const showSpinner = () => elements.poemSpinner.style.display = 'block';
 export const hideSpinner = () => elements.poemSpinner.style.display = 'none';
 
-export const renderPoem = (title, author, lines) => {
-    renderHeader(title, author);
-    renderBody(lines);
+export const renderPoem = (poem) => {
+    renderHeader(poem.title, poem.author);
+    renderBody(poem.lines);
 };
 
 export const renderHeader = (title, author) => {
