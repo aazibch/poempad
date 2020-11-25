@@ -11,7 +11,7 @@ const controlSearch = async (e) => {
     e.preventDefault();
     // 1) Get query from view
     const searchQuery = searchView.getInput();
-
+    
     // 2) Create new Search object and edit state
     state.search = new Search(searchQuery);
 
