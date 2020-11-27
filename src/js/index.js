@@ -49,6 +49,7 @@ const controlPoem = async () => {
 
         // 3) Prepare UI for poem
         poemView.clearPoem();
+        removeErrorMessages();
         renderSpinner(elements.poem);
 
         try {

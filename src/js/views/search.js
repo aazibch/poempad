@@ -18,7 +18,7 @@ export const renderResult = (result) => {
     elements.searchResultsList.insertAdjacentHTML('beforeend',
         `<li>
             <a class="search-results__link" href="#${encodeURIComponent(result.title)}" data-title="${result.title.replace(/"/g, '&quot;')}">
-                <h3 class="search-results__title">${shortenTerm(result.title, 30)}</h3>
+                <h3 class="search-results__title">${shortenTerm(result.title, 27)}</h3>
                 <p class="search-results__author">${shortenTerm(result.author, 45)}</p>
             </a>
         </li>`
