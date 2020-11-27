@@ -3,7 +3,7 @@ import Search from './modals/Search';
 import Poem from './modals/Poem';
 import * as searchView from './views/search';
 import * as poemView from './views/poem';
-import { elements, elementNames, renderSpinner, removeSpinner } from './views/base';
+import { elements, elementNames, renderSpinner, removeSpinner, renderErrorMessage, removeErrorMessages } from './views/base';
 
 const state = {};
 
@@ -17,15 +17,26 @@ const controlSearch = async (e) => {
 
     // 3) Prepare UI for results
     searchView.clearResults();
+    removeErrorMessages();
     renderSpinner(elements.searchResults);
 
-    // 4) Get results
-    await state.search.getResults();
-    state.search.removeLongerPoems();
-    removeSpinner();
+    try {
+        // 4) Get results
+        await state.search.getResults();
+        removeSpinner();
 
-    // 5) Render results to the UI
-    searchView.renderResults(state.search.results);
+        if (state.search.results.status === 404) {
+            renderErrorMessage(elements.searchResults, 'No results found.');
+        } else {
+            // 5) Render results to the UI
+            searchView.renderResults(state.search.results);
+        }
+
+    } catch(err) {
+        removeSpinner();
+        renderErrorMessage(elements.searchResults);
+    }
+
 };
 
 const controlPoem = async () => {
@@ -36,20 +47,25 @@ const controlPoem = async () => {
         // 2) Create new Poem object and edit state
         state.poem = new Poem(title);
 
-        // 3) Prepare UI for results
+        // 3) Prepare UI for poem
         poemView.clearPoem();
-        renderSpinner(elements.poemContent);
+        renderSpinner(elements.poem);
 
-        // 4) Get results
-        await state.poem.getPoem();
-        removeSpinner();
+        try {
+            // 4) Get poem
+            await state.poem.getPoem();
+            removeSpinner();
 
-        // 5) Render results to the UI
-        poemView.renderPoem({
-            title: state.poem.title,
-            author: state.poem.author,
-            lines: state.poem.lines
-        });
+            // 5) Render poem to the UI
+            poemView.renderPoem({
+                title: state.poem.title,
+                author: state.poem.author,
+                lines: state.poem.lines
+            });
+        } catch (err) {
+            removeSpinner();
+            renderErrorMessage(elements.poem);
+        }
     }
 }
 

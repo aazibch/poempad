@@ -67,10 +67,6 @@
     display: flex;
     flex-direction: column;
 
-    .error-message {
-        margin-top: 14rem;
-    }
-
     &__list {
         list-style-type: none;
         margin: 0 0 auto;
@@ -123,19 +119,15 @@
 .poem {
     border-right: 1px solid base.$generic-border-color;
     width: 100%;
-
-    article {
-        height: 100%;
-        overflow-y: auto;
-        padding: 3rem 4rem;
-    }
+    overflow-y: auto;
+    padding: 3rem 4rem;
 
     .spinner {
         margin-top: 2rem;
     }
 
     .error-message {
-        margin-top: 11rem;
+        margin-top: 2rem;
     }
 
     &__header {
