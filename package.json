@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",
-    "build": "webpack --mode production",
-    "start": "webpack serve --mode development"
+    "build": "webpack --mode production"
   },
   "keywords": [],
-  "author": "",
+  "author": "Aazib Chaudhry",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.3",
