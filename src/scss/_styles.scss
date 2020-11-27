@@ -67,9 +67,13 @@
     display: flex;
     flex-direction: column;
 
-    &__spinner {
+    .spinner {
         margin-top: 14rem;
         align-self: center;
+    }
+
+    .error-message {
+        margin-top: 14rem;
     }
 
     &__list {
@@ -131,6 +135,14 @@
         overflow-y: auto;
     }
 
+    .spinner {
+        margin: 11rem auto 0;
+    }
+
+    .error-message {
+        margin-top: 11rem;
+    }
+
     &__header {
         margin-bottom: 1.5rem;
     }
@@ -159,10 +171,6 @@
     &__space {
         display: inline-block;
         width: 1rem;
-    }
-
-    &__spinner {
-        margin: 14rem auto 0;
     }
 }
 

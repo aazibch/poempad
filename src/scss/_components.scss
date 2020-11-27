@@ -57,4 +57,20 @@ $spinner-color: #C0C0C0;
     100% {
       transform: rotate(360deg);
     }
-}  
+}
+
+.error-message {
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0 1rem;
+
+    &__text {
+        color: base.$secondary-text-color;
+        margin-bottom: 0.5rem;
+    }
+
+    &__icon {
+        color: lighten(base.$secondary-text-color, 30%);
+        font-size: 1.5rem;
+    }
+}
