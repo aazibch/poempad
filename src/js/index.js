@@ -3,8 +3,7 @@ import Search from './modals/Search';
 import Poem from './modals/Poem';
 import * as searchView from './views/search';
 import * as poemView from './views/poem';
-import { elements, elementNames } from './views/base';
-import { _ } from 'core-js';
+import { elements, elementNames, renderSpinner, removeSpinner } from './views/base';
 
 const state = {};
 
@@ -18,12 +17,12 @@ const controlSearch = async (e) => {
 
     // 3) Prepare UI for results
     searchView.clearResults();
-    searchView.showSpinner();
+    renderSpinner(elements.searchResults);
 
     // 4) Get results
     await state.search.getResults();
     state.search.removeLongerPoems();
-    searchView.hideSpinner();
+    removeSpinner();
 
     // 5) Render results to the UI
     searchView.renderResults(state.search.results);
@@ -39,11 +38,11 @@ const controlPoem = async () => {
 
         // 3) Prepare UI for results
         poemView.clearPoem();
-        poemView.showSpinner();
+        renderSpinner(elements.poemContent);
 
         // 4) Get results
         await state.poem.getPoem();
-        poemView.hideSpinner();
+        removeSpinner();
 
         // 5) Render results to the UI
         poemView.renderPoem({

@@ -1,8 +1,5 @@
 import { elements } from './base';
 
-export const showSpinner = () => elements.poemSpinner.style.display = 'block';
-export const hideSpinner = () => elements.poemSpinner.style.display = 'none';
-
 export const renderPoem = (poem) => {
     renderHeader(poem.title, poem.author);
     renderBody(poem.lines);
