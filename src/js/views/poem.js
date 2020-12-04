@@ -5,7 +5,7 @@ export const renderPoem = (poem) => {
     renderBody(poem.lines);
 };
 
-export const renderHeader = (title, author) => {
+const renderHeader = (title, author) => {
     elements.poemHeader.insertAdjacentHTML('beforeend', `
         <header class="poem__header">
             <h2 class="poem__title">${title}</h2>
@@ -14,13 +14,13 @@ export const renderHeader = (title, author) => {
     `);
 };
 
-export const renderBody = (lines) => {
+const renderBody = (lines) => {
     for (let x of lines) {
         renderLine(x);
     }
 };
 
-export const renderLine = (line) => {
+const renderLine = (line) => {
     let lineHtml;
 
     if (line.length === 0) {

@@ -14,7 +14,7 @@ export const renderResults = (results, pageNum = 1, resPerPage = 8) => {
     renderButtons(pageQuantity, pageNum);
 }
 
-export const renderResult = (result) => {
+const renderResult = (result) => {
     elements.searchResultsList.insertAdjacentHTML('beforeend',
         `<li>
             <a class="search-results__link" href="#${encodeURIComponent(result.title)}" data-title="${result.title.replace(/"/g, '&quot;')}">
@@ -25,7 +25,7 @@ export const renderResult = (result) => {
     );
 };
 
-export const shortenTerm = (term, permittedLength) => {
+const shortenTerm = (term, permittedLength) => {
     if (term.length > permittedLength) {
         const updatedTerm = [];
 
@@ -46,7 +46,7 @@ export const shortenTerm = (term, permittedLength) => {
     }
 }
 
-export const renderButtons = (pageQuantity, currentPage) => {
+const renderButtons = (pageQuantity, currentPage) => {
     if (currentPage !== 1 && currentPage <= pageQuantity) {
         createButton('prev', currentPage);
     }
@@ -56,7 +56,7 @@ export const renderButtons = (pageQuantity, currentPage) => {
     }
 }
 
-export const createButton = (type, currentPage) => {
+const createButton = (type, currentPage) => {
     let icon = 'right';
     let buttonContent = `
         Next
