@@ -40,12 +40,14 @@ const controlSearch = async (e) => {
 };
 
 const controlPoem = async () => {
-    if (window.location.hash) {
-        // 1) Get poem title from the hash.
-        const title = decodeURIComponent(window.location.hash).replace('#', '');
+    const { hash }  = window.location;
 
-        // 2) Create new Poem object and edit state
-        state.poem = new Poem(title);
+    if (hash) {
+        // 1) Highlight the selected result
+        if (state.search) searchView.highlightSelected(hash);
+        
+        // 2) Get poem title from hash and create new Poem object and edit state
+        state.poem = new Poem(decodeURIComponent(hash).replace('#', ''));
 
         // 3) Prepare UI for poem
         poemView.clearPoem();

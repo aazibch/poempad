@@ -79,7 +79,8 @@
         padding: 1rem;
     }
 
-    &__link:hover {
+    &__link:hover,
+    &__link--selected {
         background: #eeeeee;
     }
 

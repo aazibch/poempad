@@ -78,6 +78,17 @@ const createButton = (type, currentPage) => {
     `);
 }
 
+export const highlightSelected = (hashVal) => {
+    const selectedClass = 'search-results__link--selected';
+    const resultElements = document.querySelectorAll('.search-results__link');
+
+    for (let x of resultElements) {
+        x.classList.remove(selectedClass);
+    }
+
+    document.querySelector(`a[href="${hashVal}"]`).classList.add(selectedClass);
+};
+
 export const clearResults = () => {
     elements.searchResultsButtons.innerHTML = '';
     elements.searchResultsList.innerHTML = '';
