@@ -79,8 +79,8 @@ const createButton = (type, currentPage) => {
 }
 
 export const highlightSelected = (hashVal) => {
-    const selectedClass = 'search-results__link--selected';
     const resultElements = document.querySelectorAll('.search-results__link');
+    const selectedClass = 'search-results__link--selected';
 
     for (let x of resultElements) {
         x.classList.remove(selectedClass);

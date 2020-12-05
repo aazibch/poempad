@@ -9,12 +9,6 @@ export const elements = {
     poemBody: document.querySelector('.poem__body')
 }
 
-export const elementNames = {
-    spinner: '.spinner',
-    errorMessage: '.error-message',
-    searchResultsButton: '.search-results__button'
-}
-
 export const renderSpinner = parentEl => {
     const spinnerHtml = `<div class="spinner"></div>`;
 
@@ -22,7 +16,7 @@ export const renderSpinner = parentEl => {
 }
 
 export const removeSpinner = () => {
-    const spinner = document.querySelector(elementNames.spinner);
+    const spinner = document.querySelector('.spinner');
 
     if (spinner) spinner.parentElement.removeChild(spinner);
 }
@@ -38,7 +32,7 @@ export const renderErrorMessage = (parentEl, text = 'Something went wrong. Try a
 }
 
 export const removeErrorMessages = () => {
-    const errorMessages = document.querySelectorAll(elementNames.errorMessage);
+    const errorMessages = document.querySelectorAll('.error-message');
 
     if (errorMessages.length > 0) {
         for (let x of errorMessages) {

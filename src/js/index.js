@@ -3,7 +3,7 @@ import Search from './modals/Search';
 import Poem from './modals/Poem';
 import * as searchView from './views/search';
 import * as poemView from './views/poem';
-import { elements, elementNames, renderSpinner, removeSpinner, renderErrorMessage, removeErrorMessages } from './views/base';
+import { elements, renderSpinner, removeSpinner, renderErrorMessage, removeErrorMessages } from './views/base';
 
 const state = {};
 
@@ -75,7 +75,7 @@ const controlPoem = async () => {
 elements.searchForm.addEventListener('submit', controlSearch);
 
 elements.searchResultsButtons.addEventListener('click', (e) => {
-    const button = e.target.closest(elementNames.searchResultsButton);
+    const button = e.target.closest('.search-results__button');
 
     if (button) {
         searchView.clearResults();
