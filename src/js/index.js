@@ -1,6 +1,6 @@
 import '../scss/main.scss';
-import Search from './modals/Search';
-import Poem from './modals/Poem';
+import Search from './models/Search';
+import Poem from './models/Poem';
 import * as searchView from './views/search';
 import * as poemView from './views/poem';
 import { elements, renderSpinner, removeSpinner, renderErrorMessage, removeErrorMessages } from './views/base';
