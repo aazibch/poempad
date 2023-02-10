@@ -21,3 +21,5 @@ Build into a bundle:
 Build into a bundle optimized for production:
 
     webpack --mode production
+
+The generated bundle can be found in the `dist` directory.
