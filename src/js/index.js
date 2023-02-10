@@ -3,7 +3,13 @@ import Search from './models/Search';
 import Poem from './models/Poem';
 import * as searchView from './views/search';
 import * as poemView from './views/poem';
-import { elements, renderSpinner, removeSpinner, renderErrorMessage, removeErrorMessages } from './views/base';
+import {
+    elements,
+    renderSpinner,
+    removeSpinner,
+    renderErrorMessage,
+    removeErrorMessages
+} from './views/base';
 
 const state = {};
 
@@ -11,7 +17,7 @@ const controlSearch = async (e) => {
     e.preventDefault();
     // 1) Get query from view
     const searchQuery = searchView.getInput();
-    
+
     // 2) Create new Search object and edit state
     state.search = new Search(searchQuery);
 
@@ -31,21 +37,19 @@ const controlSearch = async (e) => {
             // 5) Render results to the UI
             searchView.renderResults(state.search.results);
         }
-
-    } catch(err) {
+    } catch (err) {
         removeSpinner();
         renderErrorMessage(elements.searchResults);
     }
-
 };
 
 const controlPoem = async () => {
-    const { hash }  = window.location;
+    const { hash } = window.location;
 
     if (hash) {
         // 1) Highlight the selected result
         if (state.search) searchView.highlightSelected(hash);
-        
+
         // 2) Get poem title from hash and create new Poem object and edit state
         state.poem = new Poem(decodeURIComponent(hash).replace('#', ''));
 
@@ -70,7 +74,7 @@ const controlPoem = async () => {
             renderErrorMessage(elements.poem);
         }
     }
-}
+};
 
 elements.searchForm.addEventListener('submit', controlSearch);
 
@@ -83,4 +87,6 @@ elements.searchResultsButtons.addEventListener('click', (e) => {
     }
 });
 
-['load', 'hashchange'].forEach(event => window.addEventListener(event, controlPoem));
+['load', 'hashchange'].forEach((event) =>
+    window.addEventListener(event, controlPoem)
+);
