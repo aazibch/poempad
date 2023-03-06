@@ -12,14 +12,14 @@ The app demo can be accessed at https://poempad.netlify.app/.
 
 Run the dev server:
 
-    webpack serve --mode development
+npm start
 
 Build into a bundle:
 
-    webpack --mode development
+npm run dev
 
 Build into a bundle optimized for production:
 
-    webpack --mode production
+npm run build
 
 The generated bundle can be found in the `dist` directory.
